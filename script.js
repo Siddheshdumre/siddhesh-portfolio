@@ -195,3 +195,12 @@ tabs.forEach(tab => {
     if (target) target.classList.add('active');
   });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+  const hamburgerBtn = document.getElementById('hamburgerBtn');
+  const navLinks = document.getElementById('navLinks');
+
+  hamburgerBtn.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+  });
+});
