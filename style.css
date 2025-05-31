@@ -741,3 +741,46 @@ h2 {
     cursor: pointer;
   }
 }
+
+
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+  font-family: 'Fira Code', monospace;
+}
+
+.contact-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  background: #1c1c1c;
+  color: #ccc;
+  text-decoration: none;
+  border: 1px solid #333;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.contact-links a:hover {
+  background: #00ffe122;
+  color: #00ffe1;
+  border-color: #00ffe1;
+}
+
+.contact-links i {
+  font-size: 1.1rem;
+}
+
+.contact-links a i {
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Slight float or bounce effect on hover */
+.contact-links a:hover i {
+  transform: translateY(-2px) scale(1.1);
+  color: #00ffe1;
+}
