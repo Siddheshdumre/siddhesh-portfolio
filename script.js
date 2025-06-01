@@ -204,3 +204,27 @@ document.addEventListener('DOMContentLoaded', () => {
     navLinks.classList.toggle('open');
   });
 });
+
+
+async function fetchAPOD() {
+  const container = document.getElementById('apod-container');
+  const apiKey = 'tbQCbSvjcUjJ7SIYVAibnc0KDzxyfvDjVRU00z2E'; 
+  const url = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}`;
+
+  try {
+    const res = await fetch(url);
+    const data = await res.json();
+
+    container.innerHTML = `
+      <img src="${data.url}" alt="NASA Astronomy Picture of the Day" />
+      <div class="apod-title">${data.title}</div>
+      <div class="apod-date">${data.date}</div>
+      <div class="apod-explanation">${data.explanation}</div>
+    `;
+  } catch (error) {
+    container.innerHTML = `<p style="color:#f55;">⚠️ Failed to load NASA data.</p>`;
+    console.error('APOD Error:', error);
+  }
+}
+
+fetchAPOD();
