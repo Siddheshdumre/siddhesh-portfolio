@@ -11,6 +11,8 @@
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 />
+<!-- Add GitHub Calendar CSS in <head> -->
+<link rel="stylesheet" href="https://unpkg.com/github-calendar@latest/dist/github-calendar-responsive.css" />
 
 </head>
 <body>
@@ -224,6 +226,15 @@ I'm a builder. I lead the development of full-stack web platforms for real-world
   </div>
 </section>
 
+<section id="github-activity" class="section fade-in">
+  <h2>GitHub Activity_<span class="section-svg" aria-hidden="true"></span></h2>
+  <div style="text-align:center; margin: 2rem 0;">
+    <div class="calendar" id="github-calendar">Loading GitHub contributions...</div>
+    <p id="calendar-error" style="display:none; color:#e57373;">Unable to load GitHub contributions. Please try again later.</p>
+    <p style="margin-top:1rem; font-size:0.95em; color:#888;">GitHub contribution graph for <a href="https://github.com/Siddheshdumre" target="_blank">@Siddheshdumre</a></p>
+  </div>
+</section>
+
   <!-- <section id="experience" class="section fade-in">
     <h2>Experience_</h2>
     <div class="timeline">
@@ -355,5 +366,13 @@ I'm a builder. I lead the development of full-stack web platforms for real-world
   <p>© 2025 Siddhesh Dumre • <a href="mailto:siddheshd114@gmail.com">Email Me</a> | <a href="https://github.com/Siddheshdumre" target="_blank">GitHub</a></p>
 </footer>
 
+<!-- Add GitHub Calendar JS before </body> -->
+<script src="https://unpkg.com/github-calendar@latest/dist/github-calendar.min.js"></script>
+<script>
+  GitHubCalendar("#github-calendar", "Siddheshdumre", { responsive: true })
+    .catch(function() {
+      document.getElementById('calendar-error').style.display = 'block';
+    });
+</script>
 </body>
 </html>
